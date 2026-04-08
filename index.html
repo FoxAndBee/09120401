@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox and Bee - 杨幂官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f87171',
+                        secondary: '#60a5fa',
+                        dark: '#1f2937',
+                        light: '#f9fafb',
+                        'ins-gray': '#f3f4f6',
+                        'ins-pink': '#fecdd3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .section {
+                min-height: calc(100vh - 120px); /* 减去顶部和底部导航的高度 */
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+    <style>
+        body {
+            padding-bottom: 60px; /* 为底部导航留出空间 */
+            padding-top: 60px; /* 为顶部导航留出空间 */
+        }
+        #top-poster {
+            display: none;
+        }
+        .nav-item {
+            color: #6b7280;
+            transition: all 0.3s ease;
+        }
+        .nav-item.active {
+            color: #f87171;
+        }
+        .nav-item.active i,
+        .nav-item.active span {
+            color: #f87171;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- 顶部标题栏 -->
+    <header class="bg-white text-dark fixed top-0 left-0 right-0 z-40 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-center items-center">
+            <a href="#" class="text-xl font-light flex items-center">
+                <span class="text-primary">fox</span> <span class="text-gray-400">&</span> <span class="text-primary">bee</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- 底部导航栏 -->
+    <nav id="bottom-nav" class="bg-white text-dark fixed bottom-0 left-0 right-0 z-50 shadow-sm border-t border-gray-100 hidden">
+        <div class="container mx-auto flex h-16">
+            <a href="#works" class="nav-item active flex-1 flex flex-col items-center justify-center" data-section="works">
+                <i class="fa fa-film mb-1 text-gray-500"></i>
+                <span class="text-xs text-gray-500">作品</span>
+            </a>
+            <a href="#business" class="nav-item flex-1 flex flex-col items-center justify-center" data-section="business">
+                <i class="fa fa-briefcase mb-1 text-gray-500"></i>
+                <span class="text-xs text-gray-500">商务</span>
+            </a>
+            <a href="#fans" class="nav-item flex-1 flex flex-col items-center justify-center" data-section="fans">
+                <i class="fa fa-users mb-1 text-gray-500"></i>
+                <span class="text-xs text-gray-500">粉丝</span>
+            </a>
+            <a href="#interaction" class="nav-item flex-1 flex flex-col items-center justify-center" data-section="interaction">
+                <i class="fa fa-comments mb-1 text-gray-500"></i>
+                <span class="text-xs text-gray-500">树洞</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section id="home" class="section active bg-gradient-to-r from-ins-gray to-ins-pink text-dark">
+        <div class="container mx-auto px-4 text-center py-20">
+            <h1 class="text-4xl md:text-5xl font-light mb-6">杨幂</h1>
+            <p class="text-lg md:text-xl mb-12 text-gray-600">欢迎来到 Fox and Bee 官方网站</p>
+            <a href="#works" id="explore-works" class="bg-white hover:bg-gray-100 text-dark font-medium py-3 px-8 rounded-full transition-all shadow-sm hover:shadow-md">
+                探索作品
+            </a>
+        </div>
+    </section>
+
+    <!-- 置顶海报 -->
+    <div id="top-poster" class="w-full" style="margin-top: 0;">
+        <img src="Picture/待播作品.jpg" alt="杨幂海报" class="w-full object-cover" style="margin-top: 0; aspect-ratio: 4/1;">
+    </div>
+    
+    <!-- 作品区 -->
+    <section id="works" class="section bg-light" style="padding-top: 0;">
+        <div class="container mx-auto px-4">
+            <div class="h-3"></div>
+            <h2 class="text-3xl font-bold mb-3 text-center">作品</h2>
+            
+            <!-- 作品分类标签 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <button class="work-tab active bg-primary text-light py-2 px-4 rounded-full" data-tab="tv">电视剧</button>
+                <button class="work-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="movie">电影</button>
+                <button class="work-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="variety">综艺</button>
+                <button class="work-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="music">音乐</button>
+            </div>
+            
+            <!-- 搜索和排序控制 -->
+            <div class="flex flex-col items-center mb-4 space-y-2">
+                <!-- 搜索框 -->
+                <div class="w-full max-w-md relative">
+                    <div class="flex">
+                        <input type="text" id="search-input" placeholder="搜索作品名称..." class="flex-1 bg-white border border-gray-300 rounded-l-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button id="search-btn" class="bg-primary text-white border border-primary rounded-r-lg py-2 px-4 hover:bg-opacity-90 transition-colors">
+                            搜索
+                        </button>
+                    </div>
+                    <!-- 下拉提示框 -->
+                    <div id="search-suggestions" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-b-lg shadow-md mt-1 z-10 hidden">
+                        <!-- 提示词将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                <!-- 排序控制 -->
+                <select id="sort-select" class="bg-white border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="desc">上映时间：由近到远</option>
+                    <option value="asc">上映时间：由远到近</option>
+                </select>
+            </div>
+            
+            <!-- 作品内容区 -->
+            <div id="work-content">
+                <!-- 电视剧内容 -->
+                <div id="tv-content" class="work-content active">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_16w6n2z8pfc.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=869eecda920c18395a8ec527748f7d84"}]'>
+                            <img src="Picture/作品/电视剧/生万物.jpg" alt="生万物" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">生万物</h3>
+                                <p class="text-gray-600 text-xs">2025-08-13</p>
+                                <p class="text-gray-700 text-xs">年代剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：宁绣绣</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_16w6n2z8pfc.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=869eecda920c18395a8ec527748f7d84" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_1kbk2rm8yw0.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=31beec6fa97525f9827dc2f5b4a58421"}]'>
+                            <img src="Picture/作品/电视剧/狐妖小红娘月红篇.jpg" alt="狐妖小红娘月红篇" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">狐妖小红娘月红篇</h3>
+                                <p class="text-gray-600 text-xs">2024-05-23</p>
+                                <p class="text-gray-700 text-xs">古装玄幻剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：涂山红红</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_1kbk2rm8yw0.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=31beec6fa97525f9827dc2f5b4a58421" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_1f7yemmnf3k.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=113eecbc8c6271d1a1208c4f2992f72f"}]'>
+                            <img src="Picture/作品/电视剧/哈尔滨一九四四.jpg" alt="哈尔滨一九四四" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">哈尔滨一九四四</h3>
+                                <p class="text-gray-600 text-xs">2024-04-21</p>
+                                <p class="text-gray-700 text-xs">谍战剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：关雪</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_1f7yemmnf3k.html?vfrmrst=0&vfrm=3&vfrmblk=pca_115_number_enlarge&e2=113eecbc8c6271d1a1208c4f2992f72f" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200q0sewxi/z0044divzwu.html"}]'>
+                            <img src="Picture/作品/电视剧/爱的二八定律.jpg" alt="爱的二八定律" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">爱的二八定律</h3>
+                                <p class="text-gray-600 text-xs">2022-11-14</p>
+                                <p class="text-gray-700 text-xs">都市情感剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：秦施</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/mzc00200q0sewxi/z0044divzwu.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_g0yyhr1okk.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200fph94nw/j0044otmtgt.html"}]'>
+                            <img src="Picture/作品/电视剧/谢谢你医生.jpg" alt="谢谢你医生" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">谢谢你医生</h3>
+                                <p class="text-gray-600 text-xs">2022-11-04</p>
+                                <p class="text-gray-700 text-xs">医疗剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：肖砚</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8 space-x-4">
+                                    <a href="https://www.iqiyi.com/v_g0yyhr1okk.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/mzc00200fph94nw/j0044otmtgt.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200prv7r23/q0041j617a8.html"}]'>
+                            <img src="Picture/作品/电视剧/斛珠夫人.jpg" alt="斛珠夫人" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">斛珠夫人</h3>
+                                <p class="text-gray-600 text-xs">2021-11-10</p>
+                                <p class="text-gray-700 text-xs">古装玄幻剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：方海市</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/mzc00200prv7r23/q0041j617a8.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/o8mbrpo92gni5uc/n0036i2jd49.html"}]'>
+                            <img src="Picture/作品/电视剧/暴风眼.jpg" alt="暴风眼" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">暴风眼</h3>
+                                <p class="text-gray-600 text-xs">2021-02-23</p>
+                                <p class="text-gray-700 text-xs">都市反碟剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：安静</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/o8mbrpo92gni5uc/n0036i2jd49.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/329480/5579560.html"}]'>
+                            <img src="Picture/作品/电视剧/筑梦情缘.jpg" alt="筑梦情缘" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">筑梦情缘</h3>
+                                <p class="text-gray-600 text-xs">2019-05-06</p>
+                                <p class="text-gray-700 text-xs">民国情感剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：傅函君</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.mgtv.com/b/329480/5579560.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/639agzdh10yu2q2.html"}]'>
+                            <img src="Picture/作品/电视剧/扶摇.jpg" alt="扶摇" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">扶摇</h3>
+                                <p class="text-gray-600 text-xs">2018-06-18</p>
+                                <p class="text-gray-700 text-xs">古装玄幻剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：扶摇</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/639agzdh10yu2q2.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/1efvvnobsa3zbcc/g0025r68php.html"}]'>
+                            <img src="Picture/作品/电视剧/谈判官.jpg" alt="谈判官" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">谈判官</h3>
+                                <p class="text-gray-600 text-xs">2018-02-04</p>
+                                <p class="text-gray-700 text-xs">都市职场情感剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：童薇</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/1efvvnobsa3zbcc/g0025r68php.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMjQ4MTc0ODMyOA==.html?s=387477fb41a011e69c81"}]'>
+                            <img src="Picture/作品/电视剧/三生三世十里桃花.jpg" alt="三生三世十里桃花" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">三生三世十里桃花</h3>
+                                <p class="text-gray-600 text-xs">2017-01-30</p>
+                                <p class="text-gray-700 text-xs">古装仙侠剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：白浅</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.youku.com/v_show/id_XMjQ4MTc0ODMyOA==.html?s=387477fb41a011e69c81" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/293523/3182060.html"}]'>
+                            <img src="Picture/作品/电视剧/亲爱的翻译官.jpg" alt="亲爱的翻译官" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">亲爱的翻译官</h3>
+                                <p class="text-gray-600 text-xs">2016-05-24</p>
+                                <p class="text-gray-700 text-xs">都市职场情感剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：乔菲</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.mgtv.com/b/293523/3182060.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/146781/429977.html"}]'>
+                            <img src="Picture/作品/电视剧/古剑奇谭.jpg" alt="古剑奇谭" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">古剑奇谭</h3>
+                                <p class="text-gray-600 text-xs">2014-07-02</p>
+                                <p class="text-gray-700 text-xs">古装仙侠剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：风晴雪</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.mgtv.com/b/146781/429977.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/139144/276092.html"}]'>
+                            <img src="Picture/作品/电视剧/宫锁心玉.jpg" alt="宫锁心玉" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">宫锁心玉</h3>
+                                <p class="text-gray-600 text-xs">2011-01-31</p>
+                                <p class="text-gray-700 text-xs">古装穿越剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：洛晴川</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <h3 class="font-bold text-sm">播出平台</h3>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.mgtv.com/b/139144/276092.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                                <p class="text-primary font-medium text-xs">更多</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 电影内容 -->
+                <div id="movie-content" class="work-content hidden">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">惊蛰无声</h3>
+                                <p class="text-gray-600 text-xs">2026-02-17</p>
+                                <p class="text-gray-700 text-xs">剧情/犯罪</p>
+                                <p class="text-primary font-medium text-xs">饰演：白帆</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <p class="text-gray-600 text-xs">暂无播放平台</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_1fnoxkug95k.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200tj1w6ah.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNjUwMTk4ODM2NA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/736160/23576357.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">长安的荔枝</h3>
+                                <p class="text-gray-600 text-xs">2025-07-18</p>
+                                <p class="text-gray-700 text-xs">剧情/喜剧/古装</p>
+                                <p class="text-primary font-medium text-xs">饰演：郑玉婷</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_1fnoxkug95k.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/mzc00200tj1w6ah.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNjUwMTk4ODM2NA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/736160/23576357.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_1f5erzn3tvs.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200fnkxarg.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNjQ5NTkyNTg5Ng==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/643666/23367513.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">酱园弄·悬案</h3>
+                                <p class="text-gray-600 text-xs">2025-06-21</p>
+                                <p class="text-gray-700 text-xs">剧情/犯罪</p>
+                                <p class="text-primary font-medium text-xs">饰演：王许梅</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_1f5erzn3tvs.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/mzc00200fnkxarg.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNjQ5NTkyNTg5Ng==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/643666/23367513.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNjM4OTUzNzg3Mg==.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">没有一顿火锅解决不了的事</h3>
+                                <p class="text-gray-600 text-xs">2024-05-01</p>
+                                <p class="text-gray-700 text-xs">悬疑/喜剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：幺鸡</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.youku.com/v_show/id_XNjM4OTUzNzg3Mg==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rqsgc8to.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc002003htxuzy/e00365obbj6.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNTEzMTI3MjY0OA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/336049/11619503.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">刺杀小说家</h3>
+                                <p class="text-gray-600 text-xs">2021-02-12</p>
+                                <p class="text-gray-700 text-xs">奇幻/动作/冒险</p>
+                                <p class="text-primary font-medium text-xs">饰演：屠灵</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rqsgc8to.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/mzc002003htxuzy/e00365obbj6.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNTEzMTI3MjY0OA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/336049/11619503.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rsgrqxco.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/mzc00200v3139wb.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNDUzNDY4OTEwNA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/331836/7527085.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">解放·终局营救</h3>
+                                <p class="text-gray-600 text-xs">2019-12-27</p>
+                                <p class="text-gray-700 text-xs">战争/剧情</p>
+                                <p class="text-primary font-medium text-xs">饰演：何秀萍</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rsgrqxco.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/mzc00200v3139wb.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNDUzNDY4OTEwNA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/331836/7527085.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rqywq1s0.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">宝贝儿</h3>
+                                <p class="text-gray-600 text-xs">2018-10-19</p>
+                                <p class="text-gray-700 text-xs">现实/文艺/剧情</p>
+                                <p class="text-primary font-medium text-xs">饰演：江萌</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rqywq1s0.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rr7p365w.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/laraofctuh3mh4q/p00243dewaz.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMjk5ODA3MjY0MA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/292078/4083212.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">绣春刀 Ⅱ：修罗战场</h3>
+                                <p class="text-gray-600 text-xs">2017-07-19</p>
+                                <p class="text-gray-700 text-xs">武侠/古装/动作</p>
+                                <p class="text-primary font-medium text-xs">饰演：北斋/妙玄</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rr7p365w.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/laraofctuh3mh4q/p00243dewaz.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XMjk5ODA3MjY0MA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/292078/4083212.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rr7kthts.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/ia928vxnnvkemp5.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMjkyNDU2Nzc0OA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/314137/4033975.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">逆时营救</h3>
+                                <p class="text-gray-600 text-xs">2017-06-29</p>
+                                <p class="text-gray-700 text-xs">科幻/动作</p>
+                                <p class="text-primary font-medium text-xs">饰演：夏天</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rr7kthts.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/ia928vxnnvkemp5.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XMjkyNDU2Nzc0OA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/314137/4033975.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/2ot92nkpkhcjd5j/y0345xsdeuv.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">怦然星动</h3>
+                                <p class="text-gray-600 text-xs">2015-12-03</p>
+                                <p class="text-gray-700 text-xs">爱情/喜剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：田心</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://v.qq.com/x/cover/2ot92nkpkhcjd5j/y0345xsdeuv.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrk9p9uo.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/jsdzkpdh5e32whk/e0019mfd0km.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/157805/1868863.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">我是证人</h3>
+                                <p class="text-gray-600 text-xs">2015-10-30</p>
+                                <p class="text-gray-700 text-xs">悬疑/犯罪/动作</p>
+                                <p class="text-primary font-medium text-xs">饰演：路小星</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrk9p9uo.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/jsdzkpdh5e32whk/e0019mfd0km.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/157805/1868863.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrnxojgc.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/op80bt5pwxawjej.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMjgwOTU2NTk0NA==.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/150892/3049777.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">小时代 4：灵魂尽头</h3>
+                                <p class="text-gray-600 text-xs">2015-07-09</p>
+                                <p class="text-gray-700 text-xs">爱情/青春</p>
+                                <p class="text-primary font-medium text-xs">饰演：林萧</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrnxojgc.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/op80bt5pwxawjej.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XMjgwOTU2NTk0NA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/150892/3049777.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">何以笙箫默</h3>
+                                <p class="text-gray-600 text-xs">2015-04-30</p>
+                                <p class="text-gray-700 text-xs">爱情/青春</p>
+                                <p class="text-primary font-medium text-xs">饰演：赵默笙</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <p class="text-gray-600 text-xs">暂无播放平台</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrmmz5yw.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/xkgz9jfa3y9842a.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMjgzNzYxODQ4MA==.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">小时代 3：刺金时代</h3>
+                                <p class="text-gray-600 text-xs">2014-07-17</p>
+                                <p class="text-gray-700 text-xs">爱情/青春</p>
+                                <p class="text-primary font-medium text-xs">饰演：林萧</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrmmz5yw.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/xkgz9jfa3y9842a.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XMjgzNzYxODQ4MA==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">分手大师</h3>
+                                <p class="text-gray-600 text-xs">2014-06-27</p>
+                                <p class="text-gray-700 text-xs">喜剧/爱情</p>
+                                <p class="text-primary font-medium text-xs">饰演：叶小春</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <p class="text-gray-600 text-xs">暂无播放平台</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrftnn2k.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/t3tb1wlp407drc6.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNjAyMDk1Nzky.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">小时代 2：青木时代</h3>
+                                <p class="text-gray-600 text-xs">2013-08-08</p>
+                                <p class="text-gray-700 text-xs">爱情/青春</p>
+                                <p class="text-primary font-medium text-xs">饰演：林萧</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrftnn2k.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/t3tb1wlp407drc6.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNjAyMDk1Nzky.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrhofx0k.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/87hs5whz81ef0g7.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNTg3NjkzMzIw.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">小时代</h3>
+                                <p class="text-gray-600 text-xs">2013-06-27</p>
+                                <p class="text-gray-700 text-xs">爱情/青春</p>
+                                <p class="text-primary font-medium text-xs">饰演：林萧</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrhofx0k.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/87hs5whz81ef0g7.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNTg3NjkzMzIw.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrjty4pk.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/ymowzbq68jovpav/v001166q8su.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNDU2MTExNTY0.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/9229/325870.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">HOLD 住爱</h3>
+                                <p class="text-gray-600 text-xs">2012-08-23</p>
+                                <p class="text-gray-700 text-xs">爱情/喜剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：周静</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrjty4pk.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/ymowzbq68jovpav/v001166q8su.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNDU2MTExNTY0.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/9229/325870.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrk5ocac.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/k66fv0sgitke0zc/u0018y02hr9.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XNTg0OTk4MDU1Ng==.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">大武当之天地密码</h3>
+                                <p class="text-gray-600 text-xs">2012-07-06</p>
+                                <p class="text-gray-700 text-xs">动作/冒险/古装</p>
+                                <p class="text-primary font-medium text-xs">饰演：天心</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrk5ocac.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/k66fv0sgitke0zc/u0018y02hr9.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XNTg0OTk4MDU1Ng==.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">画皮Ⅱ</h3>
+                                <p class="text-gray-600 text-xs">2012-06-28</p>
+                                <p class="text-gray-700 text-xs">奇幻/爱情/古装</p>
+                                <p class="text-primary font-medium text-xs">饰演：雀儿</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <p class="text-gray-600 text-xs">暂无播放平台</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rrjcgdo8.html"},{"name":"腾讯视频","icon":"Picture/图标/鹅.jpg","link":"https://v.qq.com/x/cover/6y3o1gqufhtksza/u0033h7kwwu.html"},{"name":"优酷","icon":"Picture/图标/裤.jpg","link":"https://v.youku.com/v_show/id_XMzg2NzAxMTAw.html"},{"name":"芒果TV","icon":"Picture/图标/芒.jpg","link":"https://www.mgtv.com/b/49240/597674.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">春娇与志明</h3>
+                                <p class="text-gray-600 text-xs">2012-03-30</p>
+                                <p class="text-gray-700 text-xs">爱情/喜剧</p>
+                                <p class="text-primary font-medium text-xs">饰演：尚优优</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rrjcgdo8.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.qq.com/x/cover/6y3o1gqufhtksza/u0033h7kwwu.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/鹅.jpg" alt="腾讯视频" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://v.youku.com/v_show/id_XMzg2NzAxMTAw.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/裤.jpg" alt="优酷" class="h-full object-contain">
+                                    </a>
+                                    <a href="https://www.mgtv.com/b/49240/597674.html" target="_blank" class="h-full flex items-center mx-2">
+                                        <img src="Picture/图标/芒.jpg" alt="芒果TV" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center cursor-pointer" data-toggle="platform" data-platforms='[{"name":"爱奇艺","icon":"Picture/图标/桃.jpg","link":"https://www.iqiyi.com/v_19rr7r50kk.html"}]'>
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20movie%20poster%20with%20actress%20Yang%20Mi&image_size=landscape_16_9" alt="电影海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <div class="original-content">
+                                <h3 class="font-bold text-sm">孤岛惊魂</h3>
+                                <p class="text-gray-600 text-xs">2011-07-08</p>
+                                <p class="text-gray-700 text-xs">惊悚/恐怖</p>
+                                <p class="text-primary font-medium text-xs">饰演：沈依琳</p>
+                            </div>
+                            <div class="platform-content hidden">
+                                <p class="text-primary font-medium text-xs mb-2">播放平台</p>
+                                <div class="flex justify-center items-center h-8">
+                                    <a href="https://www.iqiyi.com/v_19rr7r50kk.html" target="_blank" class="h-full flex items-center">
+                                        <img src="Picture/图标/桃.jpg" alt="爱奇艺" class="h-full object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 综艺内容 -->
+                <div id="variety-content" class="work-content hidden">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">密室大逃脱</h3>
+                            <p class="text-gray-600 text-xs">2023-05-03</p>
+                            <p class="text-gray-700 text-xs">实景解密体验秀</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">真正男子汉</h3>
+                            <p class="text-gray-600 text-xs">2015-05-01</p>
+                            <p class="text-gray-700 text-xs">明星军营体验秀</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">快乐大本营</h3>
+                            <p class="text-gray-600 text-xs">2012-01-14</p>
+                            <p class="text-gray-700 text-xs">明星综艺娱乐秀</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">王牌对王牌</h3>
+                            <p class="text-gray-600 text-xs">2020-02-21</p>
+                            <p class="text-gray-700 text-xs">明星竞技真人秀</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">奔跑吧兄弟</h3>
+                            <p class="text-gray-600 text-xs">2017-04-14</p>
+                            <p class="text-gray-700 text-xs">明星户外竞技秀</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20variety%20show%20poster%20with%20Yang%20Mi&image_size=landscape_16_9" alt="综艺海报" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">中国达人秀</h3>
+                            <p class="text-gray-600 text-xs">2019-08-11</p>
+                            <p class="text-gray-700 text-xs">才艺选秀节目</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 音乐内容 -->
+                <div id="music-content" class="work-content hidden">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">爱的供养</h3>
+                            <p class="text-gray-600 text-xs">2011-01-01</p>
+                            <p class="text-gray-700 text-xs">电视剧《宫锁心玉》主题曲</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">异想记</h3>
+                            <p class="text-gray-600 text-xs">2012-01-04</p>
+                            <p class="text-gray-700 text-xs">个人单曲</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">需要恋爱的夏天</h3>
+                            <p class="text-gray-600 text-xs">2011-07-16</p>
+                            <p class="text-gray-700 text-xs">个人单曲</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">琉璃月</h3>
+                            <p class="text-gray-600 text-xs">2010-08-20</p>
+                            <p class="text-gray-700 text-xs">网络游戏《天下贰》主题曲</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">不是秘密的秘密</h3>
+                            <p class="text-gray-600 text-xs">2012-07-17</p>
+                            <p class="text-gray-700 text-xs">电影《大武当之天地密码》主题曲</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20music%20album%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="音乐封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h3 class="font-bold text-sm">爱情爱情</h3>
+                            <p class="text-gray-600 text-xs">2012-01-29</p>
+                            <p class="text-gray-700 text-xs">电视剧《北京爱情故事》插曲</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商务区 -->
+    <section id="business" class="section bg-gray-100" style="padding-top: 0;">
+        <div class="container mx-auto px-4">
+            <div class="h-3"></div>
+            <h2 class="text-3xl font-bold mb-3 text-center">商务</h2>
+            
+            <!-- 商务分类标签 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <button class="business-tab active bg-primary text-light py-2 px-4 rounded-full" data-tab="magazine">杂志汇总</button>
+                <button class="business-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="endorsement">代言汇总</button>
+            </div>
+            
+            <!-- 杂志筛选框 -->
+            <div id="magazine-filter" class="flex justify-center mb-4">
+                <select id="magazine-select" class="bg-white border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="all">全部杂志</option>
+                    <option value="VOGUE">VOGUE</option>
+                    <option value="ELLE">ELLE</option>
+                    <option value="时尚芭莎">时尚芭莎</option>
+                    <option value="嘉人">嘉人</option>
+                    <option value="时尚COSMO">时尚COSMO</option>
+                </select>
+            </div>
+            
+            <!-- 商务内容区 -->
+            <div id="business-content">
+                <!-- 杂志汇总内容 -->
+                <div id="magazine-content" class="business-content active">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">VOGUE</h4>
+                            <p class="text-gray-600 text-xs">2023年10月刊</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">ELLE</h4>
+                            <p class="text-gray-600 text-xs">2022年8月刊</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">时尚芭莎</h4>
+                            <p class="text-gray-600 text-xs">2021年5月刊</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">时尚COSMO</h4>
+                            <p class="text-gray-600 text-xs">2023年3月刊</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">嘉人</h4>
+                            <p class="text-gray-600 text-xs">2022年12月刊</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20magazine%20cover%20with%20Yang%20Mi&image_size=landscape_16_9" alt="杂志封面" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            <h4 class="font-bold text-sm">ELLE</h4>
+                            <p class="text-gray-600 text-xs">2022年5月刊</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 代言汇总内容 -->
+                <div id="endorsement-content" class="business-content hidden">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/3199553240" target="_blank">
+                                <img src="Picture/商务/代言/CL路铂廷.jpg" alt="CL路铂廷" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">CL路铂廷</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5813211408" target="_blank">
+                                <img src="Picture/商务/代言/Prada普拉达.jpg" alt="Prada普拉达" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">Prada普拉达</h4>
+                            <p class="text-gray-600 text-xs">品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1793598474" target="_blank">
+                                <img src="Picture/商务/代言/雅诗兰黛.jpg" alt="雅诗兰黛" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">雅诗兰黛</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1807425655" target="_blank">
+                                <img src="Picture/商务/代言/Miss Sixty.jpg" alt="Miss Sixty" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">Miss Sixty</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1843855290" target="_blank">
+                                <img src="Picture/商务/代言/卡诗.jpg" alt="卡诗" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">卡诗</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/2004803620" target="_blank">
+                                <img src="Picture/商务/代言/思加图.jpg" alt="思加图" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">思加图</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7791266545" target="_blank">
+                                <img src="Picture/商务/代言/库迪咖啡.jpg" alt="库迪咖啡" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">库迪咖啡</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7646017102" target="_blank">
+                                <img src="Picture/商务/代言/三只小山羊.jpg" alt="三只小山羊" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">三只小山羊</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7746616985" target="_blank">
+                                <img src="Picture/商务/代言/SIINSIIN.jpg" alt="SIINSIIN" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">SIINSIIN</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7784672513" target="_blank">
+                                <img src="Picture/商务/代言/小野和子.jpg" alt="小野和子" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">小野和子</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1928991291" target="_blank">
+                                <img src="Picture/商务/代言/宝家洁.jpg" alt="宝家洁" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">宝家洁</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/2032324775" target="_blank">
+                                <img src="Picture/商务/代言/背背佳.jpg" alt="背背佳" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">背背佳</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/3635355927" target="_blank">
+                                <img src="Picture/商务/代言/凯度.jpg" alt="凯度" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">凯度</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/2736323607" target="_blank">
+                                <img src="Picture/商务/代言/高梵.jpg" alt="高梵" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">高梵</h4>
+                            <p class="text-gray-600 text-xs">全球品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7868744436" target="_blank">
+                                <img src="Picture/商务/代言/BKT.jpg" alt="BKT" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">BKT</h4>
+                            <p class="text-gray-600 text-xs">全球首席代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/6016404050" target="_blank">
+                                <img src="Picture/商务/代言/维多利亚的秘密.jpg" alt="维多利亚的秘密" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">维多利亚的秘密</h4>
+                            <p class="text-gray-600 text-xs">亚洲区品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1753104783" target="_blank">
+                                <img src="Picture/商务/代言/丝塔芙.jpg" alt="丝塔芙" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">丝塔芙</h4>
+                            <p class="text-gray-600 text-xs">亚太区品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/7906186115" target="_blank">
+                                <img src="Picture/商务/代言/享界汽车.jpg" alt="享界汽车" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">享界汽车</h4>
+                            <p class="text-gray-600 text-xs">享界品牌大使</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1839167003" target="_blank">
+                                <img src="Picture/商务/代言/华为Mate XTs.jpg" alt="华为Mate XTs" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">华为Mate XTs</h4>
+                            <p class="text-gray-600 text-xs">鸿蒙推广大使</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5708202469" target="_blank">
+                                <img src="Picture/商务/代言/Jellycat.jpg" alt="Jellycat" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">Jellycat</h4>
+                            <p class="text-gray-600 text-xs">潮趣合伙人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1805556960" target="_blank">
+                                <img src="Picture/商务/代言/FILA.jpg" alt="FILA" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">FILA</h4>
+                            <p class="text-gray-600 text-xs">名誉合伙人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5698023579" target="_blank">
+                                <img src="Picture/商务/代言/王者荣耀.jpg" alt="王者荣耀" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">王者荣耀</h4>
+                            <p class="text-gray-600 text-xs">荣耀王者代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/1282440983" target="_blank">
+                                <img src="Picture/商务/代言/淘宝闪购.jpg" alt="淘宝闪购" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">淘宝闪购</h4>
+                            <p class="text-gray-600 text-xs">代言人·福利合伙人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5632928249" target="_blank">
+                                <img src="Picture/商务/代言/欢乐家.jpg" alt="欢乐家" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">欢乐家</h4>
+                            <p class="text-gray-600 text-xs">品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5051369481" target="_blank">
+                                <img src="Picture/商务/代言/君乐宝奶粉.jpg" alt="君乐宝奶粉" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">君乐宝奶粉</h4>
+                            <p class="text-gray-600 text-xs">品牌代言人</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center">
+                            <a href="https://weibo.com/u/5907479089" target="_blank">
+                                <img src="Picture/商务/代言/王小卤.jpg" alt="王小卤" class="w-full aspect-[3/4] object-cover rounded-md mb-2 mx-auto">
+                            </a>
+                            <h4 class="font-bold text-sm">王小卤</h4>
+                            <p class="text-gray-600 text-xs">品牌代言人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 粉丝区 -->
+    <section id="fans" class="section bg-light" style="padding-top: 0;">
+        <div class="container mx-auto px-4">
+            <div class="h-3"></div>
+            <h2 class="text-3xl font-bold mb-3 text-center">粉丝</h2>
+            
+            <!-- 粉丝分类标签 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <button class="fan-tab active bg-primary text-light py-2 px-4 rounded-full" data-tab="queen">蜂王</button>
+                <button class="fan-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="scout">侦察蜂</button>
+                <button class="fan-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="brewer">酿造蜂</button>
+                <button class="fan-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="collector">采集蜂</button>
+            </div>
+            
+            <!-- 粉丝内容区 -->
+            <div id="fan-content">
+                <!-- 蜂王内容 -->
+                <div id="queen-content" class="fan-content active">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between">
+                        <p class="font-bold text-lg">杨幂官方粉丝团</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/1728698130" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/浪.jpg" alt="微博" class="h-9 w-9 object-contain">
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/豆.jpg" alt="抖音" class="h-9 w-9 object-contain">
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/薯.jpg" alt="小红书" class="h-9 w-9 object-contain">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between mt-4">
+                        <p class="font-bold text-lg">杨幂数据库</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/5880873814" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/浪.jpg" alt="微博" class="h-9 w-9 object-contain">
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/豆.jpg" alt="抖音" class="h-9 w-9 object-contain">
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/薯.jpg" alt="小红书" class="h-9 w-9 object-contain">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between mt-4">
+                        <p class="font-bold text-lg">杨幂反黑站</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/1758430923" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <img src="Picture/图标/浪.jpg" alt="微博" class="h-9 w-9 object-contain">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 侦察蜂内容 -->
+                <div id="scout-content" class="fan-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/美味.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">美味</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/5880873814" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/水星记.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">水星</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/6588978280" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/时序.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">时序</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/7955872415" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/采莲子.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">采莲子</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/7761776121" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/出逃夜.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">出逃夜</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/7756247751" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/野蜂.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">野蜂</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/7264456655" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/玫瑰.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">玫瑰</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/7587903509" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/思念.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">思念</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/5247499601" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/本本.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">本本</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/6155202942" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/月牙.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">月牙</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/6427553901" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex items-center justify-between" style="background-image: url('Picture/粉丝/站姐/独角兽.jpg'); background-size: cover; background-position: center; aspect-ratio: 4/1;">
+                        <p class="font-bold text-lg text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">独角兽</p>
+                        <div class="flex space-x-4">
+                            <a href="https://weibo.com/u/5427499601" target="_blank" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/浪.jpg" alt="微博" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/豆.jpg" alt="抖音" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                            <a href="#" class="text-dark hover:text-primary transition-colors">
+                                <div class="bg-white rounded-full p-1 flex items-center justify-center" style="width: 45px; height: 45px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <img src="Picture/图标/薯.jpg" alt="小红书" class="h-7 w-7 object-contain">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 酿造蜂内容 -->
+                <div id="brewer-content" class="fan-content hidden">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <a href="#" class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow text-center">
+                                <img src="Picture/图标/浪.jpg" alt="微博" class="h-8 w-8 object-contain mb-2">
+                                <h4 class="font-bold text-sm">微博主页汇总</h4>
+                            </a>
+                            <a href="#" class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow text-center">
+                                <img src="Picture/图标/豆.jpg" alt="抖音" class="h-8 w-8 object-contain mb-2">
+                                <h4 class="font-bold text-sm">抖音主页汇总</h4>
+                            </a>
+                            <a href="#" class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow text-center">
+                                <i class="fa fa-book text-primary text-2xl mb-2"></i>
+                                <h4 class="font-bold text-sm">小红书主页汇总</h4>
+                            </a>
+                            <a href="#" class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow text-center">
+                                <i class="fa fa-youtube-play text-primary text-2xl mb-2"></i>
+                                <h4 class="font-bold text-sm">B站主页汇总</h4>
+                            </a>
+                            <a href="#" class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow text-center">
+                                <i class="fa fa-scissors text-primary text-2xl mb-2"></i>
+                                <h4 class="font-bold text-sm">优质剪辑视频汇总</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 采集蜂内容 -->
+                <div id="collector-content" class="fan-content hidden">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <p class="text-gray-600 mb-4">数据链接汇总</p>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center text-dark hover:text-primary transition-colors p-3 bg-gray-50 rounded-md">
+                                <i class="fa fa-line-chart text-xl mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">酷云实时收视率链接</h4>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center text-dark hover:text-primary transition-colors p-3 bg-gray-50 rounded-md">
+                                <i class="fa fa-ticket text-xl mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">猫眼票房链接</h4>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center text-dark hover:text-primary transition-colors p-3 bg-gray-50 rounded-md">
+                                <i class="fa fa-fire text-xl mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">腾讯爱奇艺热度链接</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 互动区 -->
+    <section id="interaction" class="section bg-gray-100" style="padding-top: 0;">
+        <div class="container mx-auto px-4">
+            
+                <!-- 粉丝表白墙大屏 -->
+                <div class="relative rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow mb-4" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=night%20sky%20with%20fireworks%20background&image_size=landscape_16_9'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="relative h-full w-full">
+                        <div class="aspect-video relative overflow-hidden w-full h-full" id="danmaku-container">
+                            <!-- 弹幕将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- 互动区分类标签 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <button class="interaction-tab active bg-primary text-light py-2 px-4 rounded-full" data-tab="语录">杨幂语录</button>
+                <button class="interaction-tab bg-gray-200 hover:bg-primary hover:text-light py-2 px-4 rounded-full transition-colors" data-tab="狐狸和蜜蜂">狐狸和蜜蜂</button>
+            </div>
+            
+            <!-- 互动区内容区 -->
+            <div id="interaction-content">
+                <!-- 杨幂语录内容 -->
+                <div id="语录-content" class="interaction-content active">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6">
+                            <!-- 语录微博截图矩阵 -->
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Yang%20Mi%20quote%20weibo%20screenshot&image_size=landscape_16_9" alt="杨幂语录微博截图" class="w-full aspect-[4/3] object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 狐狸和蜜蜂内容 -->
+                <div id="狐狸和蜜蜂-content" class="interaction-content hidden">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <div class="space-y-4">
+                            <a href="#" class="block bg-gray-50 p-4 rounded-md hover:bg-gray-100 transition-colors">
+                                <div class="flex items-center">
+                                    <i class="fa fa-video-camera text-primary text-xl mr-3"></i>
+                                    <span>杨幂化身美人鱼为粉丝庆生</span>
+                                </div>
+                            </a>
+                            <a href="#" class="block bg-gray-50 p-4 rounded-md hover:bg-gray-100 transition-colors">
+                                <div class="flex items-center">
+                                    <i class="fa fa-envelope text-primary text-xl mr-3"></i>
+                                    <span>杨幂给粉丝的信</span>
+                                </div>
+                            </a>
+                            <a href="#" class="block bg-gray-50 p-4 rounded-md hover:bg-gray-100 transition-colors">
+                                <div class="flex items-center">
+                                    <i class="fa fa-users text-primary text-xl mr-3"></i>
+                                    <span>见面会视频链接</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed right-4 bottom-20 bg-[#4ade80] bg-opacity-30 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#4ade80] hover:bg-opacity-60 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="bg-white text-dark py-8 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-light flex items-center">
+                        <span class="text-primary">fox</span> <span class="text-gray-400">&</span> <span class="text-primary">bee</span>
+                    </a>
+                    <p class="text-gray-400 mt-2 text-sm">© 2026 Fox and Bee. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://weibo.com/u/5664217191" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+                        <img src="Picture/图标/浪.jpg" alt="微博" class="h-6 w-6 object-contain">
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                        <img src="Picture/图标/豆.jpg" alt="抖音" class="h-6 w-6 object-contain">
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fa fa-picture-o text-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fa fa-play text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
